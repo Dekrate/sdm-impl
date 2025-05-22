@@ -8,10 +8,10 @@ import java.util.ArrayList;
 
 public class PickupSticksResult implements Result {
 
-	private Map<PickupSticksPlayer, Integer> playerScores; // Map to store scores for each player
+	private Map<PickupSticksPlayer, Integer> playerScores;
 	private PickupSticksPlayer winner;
 	private boolean matchFinished;
-	private List<PickupSticksPlayer> contestants; // Store contestants for reference
+	private List<PickupSticksPlayer> contestants;
 
 	
 	public PickupSticksResult(PickupSticksPlayer player1, PickupSticksPlayer player2) {
@@ -96,7 +96,7 @@ public class PickupSticksResult implements Result {
 
 	
 	public void accept(PickupSticksResultVisitor visitor) {
-		visitor.visit(this); // Visit this PickupSticksResult object
+		visitor.visit(this);
 
 
 	}

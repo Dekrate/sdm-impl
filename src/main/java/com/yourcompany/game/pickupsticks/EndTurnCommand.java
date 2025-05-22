@@ -9,7 +9,7 @@ import com.yourcompany.game.Result;
 
 public class EndTurnCommand implements MatchCommand<PickupSticksMatch> {
 
-	private PickupSticksPlayer player; // The player whose turn ended
+	private PickupSticksPlayer player;
 
 	
 	public EndTurnCommand(PickupSticksPlayer player) {
@@ -20,7 +20,7 @@ public class EndTurnCommand implements MatchCommand<PickupSticksMatch> {
 	@Override
 	public void execute(PickupSticksMatch match) {
 		if (match != null && player != null) {
-			match.recordAction(player, "Ended turn"); // Delegate the action to the Receiver
+			match.recordAction(player, "Ended turn");
 		} else {
 			System.err.println("Error executing EndTurnCommand: Match or player is null.");
 		}

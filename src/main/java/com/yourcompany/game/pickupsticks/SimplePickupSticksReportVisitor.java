@@ -3,7 +3,7 @@ package com.yourcompany.game.pickupsticks;
 import com.yourcompany.game.pickupsticks.PickupSticksResult;
 import com.yourcompany.game.pickupsticks.PickupSticksPlayer;
 
-public class SimplePickupSticksReportVisitor implements PickupSticksResultVisitor { // Implement PickupSticksResultVisitor
+public class SimplePickupSticksReportVisitor implements PickupSticksResultVisitor {
 
 	private StringBuilder report;
 

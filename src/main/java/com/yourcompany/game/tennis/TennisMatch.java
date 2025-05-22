@@ -47,7 +47,7 @@ public class TennisMatch implements Match<TennisPlayer, TennisResult> {
 	
 	public void executeCommand(MatchCommand<TennisMatch> command) {
 		if (command != null) {
-			command.execute(this); // The command executes itself on this match (the Receiver)
+			command.execute(this);
 		} else {
 			System.err.println("Cannot execute null command.");
 		}
@@ -92,7 +92,7 @@ public class TennisMatch implements Match<TennisPlayer, TennisResult> {
 		}
 
 		if (action instanceof String && ((String) action).equalsIgnoreCase("point won")) {
-			pointWonBy(contestant); // Still delegate to the internal method
+			pointWonBy(contestant);
 		} else {
 			String description = "Action by " + contestant.getName() + ": " + action.toString();
 			Event actionEvent = new Event(description, contestant);

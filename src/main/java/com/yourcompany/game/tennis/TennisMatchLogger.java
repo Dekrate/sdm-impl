@@ -3,10 +3,10 @@ package com.yourcompany.game.tennis;
 import com.yourcompany.game.MatchObserver;
 import com.yourcompany.game.Match;
 import com.yourcompany.game.Event;
-import com.yourcompany.game.tennis.TennisPlayer; // Assuming TennisPlayer for context
-import com.yourcompany.game.tennis.TennisMatch; // Assuming TennisMatch for context
+import com.yourcompany.game.tennis.TennisPlayer;
+import com.yourcompany.game.tennis.TennisMatch;
 
-public class TennisMatchLogger implements MatchObserver<TennisPlayer, TennisMatch> { // Renamed to TennisMatchLogger
+public class TennisMatchLogger implements MatchObserver<TennisPlayer, TennisMatch> {
 
 	private String loggerName;
 

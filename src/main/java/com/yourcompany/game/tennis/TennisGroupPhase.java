@@ -10,16 +10,16 @@ import java.util.Random;
 
 public class TennisGroupPhase extends AbstractTournamentPhase<TennisPlayer, TennisMatch> {
 
-	private static final Random RANDOM = new Random(); // Random for match simulation
+	private static final Random RANDOM = new Random();
 
-	private TennisStandings standings; // Klasyfikacja dla tej grupy
-	private List<DrawStrategy<TennisPlayer>> drawStrategies; // Strategie rozwiązywania remisów dla klasyfikacji
+	private TennisStandings standings;
+	private List<DrawStrategy<TennisPlayer>> drawStrategies;
 
 	
 	public TennisGroupPhase(String name, List<TennisPlayer> participants, List<DrawStrategy<TennisPlayer>> drawStrategies) {
 		super(name, participants);
 		this.drawStrategies = drawStrategies;
-		this.standings = new TennisStandings(participants, drawStrategies); // Inicjalizuj klasyfikację
+		this.standings = new TennisStandings(participants, drawStrategies);
 	}
 
 	
@@ -54,12 +54,12 @@ public class TennisGroupPhase extends AbstractTournamentPhase<TennisPlayer, Tenn
 
 
 			int pointsSimulated = 0;
-			final int MAX_POINTS_PER_MATCH_SIMULATION = 500; // Limit punktów dla całej symulacji meczu
+			final int MAX_POINTS_PER_MATCH_SIMULATION = 500;
 
 			while (!match.isFinished() && pointsSimulated < MAX_POINTS_PER_MATCH_SIMULATION) {
 				match.executeCommand(new TennisPointWonCommand(RANDOM.nextBoolean() ? p1 : p2));
 
-				if (RANDOM.nextInt(100) < 5) { // 5% szans na naruszenie
+				if (RANDOM.nextInt(100) < 5) {
 					if (RANDOM.nextBoolean()) {
 						match.executeCommand(new RecordViolationCommand(new FootFault(RANDOM.nextBoolean() ? p1 : p2)));
 					} else {
@@ -75,7 +75,7 @@ public class TennisGroupPhase extends AbstractTournamentPhase<TennisPlayer, Tenn
 
 				match.executeCommand(new EndMatchCommand<>());
 			} else {
-				match.executeCommand(new EndMatchCommand<>()); // Zakończ mecz, jeśli już się naturalnie zakończył
+				match.executeCommand(new EndMatchCommand<>());
 			}
 
 			System.out.println("\n--- Log meczu ---");
@@ -98,7 +98,7 @@ public class TennisGroupPhase extends AbstractTournamentPhase<TennisPlayer, Tenn
 		System.out.println("\nOstateczna klasyfikacja dla grupy tenisowej '" + name + "':\n" + standings.getStandingsTable());
 
 		List<TennisPlayer> ranked = standings.getRankedContestants();
-		if (ranked.size() >= 2) { // Zakładając, że kwalifikują się 2 najlepszych
+		if (ranked.size() >= 2) {
 			qualifiers.add(ranked.get(0));
 			qualifiers.add(ranked.get(1));
 			System.out.println("Kwalifikanci z grupy tenisowej '" + name + "': " + qualifiers.get(0).getName() + " i " + qualifiers.get(1).getName());

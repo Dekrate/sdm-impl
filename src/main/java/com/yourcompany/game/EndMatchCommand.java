@@ -11,7 +11,7 @@ public class EndMatchCommand<M extends Match<? extends Contestant, ? extends Res
 	@Override
 	public void execute(M match) {
 		if (match != null) {
-			match.endMatch(); // Delegate the action to the Receiver
+			match.endMatch();
 		} else {
 			System.err.println("Error executing EndMatchCommand: Match is null.");
 		}

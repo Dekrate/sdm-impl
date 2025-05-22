@@ -2,8 +2,8 @@ package com.yourcompany.game.tennis;
 
 
 public class TennisPoint {
-	private int value; // 0, 15, 30, 40
-	private boolean advantage; // Czy punkt to Advantage
+	private int value;
+	private boolean advantage;
 
 	public TennisPoint() {
 		this.value = 0;
@@ -23,7 +23,7 @@ public class TennisPoint {
 
 	public void setAdvantage() {
 		this.advantage = true;
-		this.value = 40; // Advantage jest zazwyczaj po 40, ale to bardziej stan niż wartość numeryczna
+		this.value = 40;
 	}
 
 
@@ -35,7 +35,7 @@ public class TennisPoint {
 
 	public void resetAdvantage() {
 		this.advantage = false;
-		this.value = 40; // Po resetowaniu Advantage, punkt wraca do 40
+		this.value = 40;
 	}
 
 

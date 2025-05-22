@@ -2,7 +2,7 @@ package com.yourcompany.game;
 
 public abstract class ResultDecorator implements Result {
 
-	protected Result wrappedResult; // Reference to the decorated Result object
+	protected Result wrappedResult;
 
 	
 	public ResultDecorator(Result wrappedResult) {
@@ -23,7 +23,7 @@ public abstract class ResultDecorator implements Result {
 
 	@Override
 	public String getScoreString() {
-		return wrappedResult.getScoreString(); // This will be commonly overridden
+		return wrappedResult.getScoreString();
 	}
 
 

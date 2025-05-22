@@ -16,12 +16,12 @@ public class PickupSticksHeadToHeadDrawStrategy implements DrawStrategy<PickupSt
 
 	@Override
 	public List<PickupSticksPlayer> resolveTie(List<PickupSticksPlayer> tiedContestants,
-	                                           Map<PickupSticksPlayer, Map<String, Integer>> standingsData, // Specific map type
-	                                           List<? extends Match<PickupSticksPlayer, ?>> allMatches) { // All matches
+	                                           Map<PickupSticksPlayer, Map<String, Integer>> standingsData,
+	                                           List<? extends Match<PickupSticksPlayer, ?>> allMatches) {
 
 		if (tiedContestants.size() != 2) {
 			System.out.println("  Head-to-Head Strategy: Not applicable for " + tiedContestants.size() + " players. Returning original order.");
-			return new ArrayList<>(tiedContestants); // Return as is
+			return new ArrayList<>(tiedContestants);
 		}
 
 		PickupSticksPlayer p1 = tiedContestants.get(0);

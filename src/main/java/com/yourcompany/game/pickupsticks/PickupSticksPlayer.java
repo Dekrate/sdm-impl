@@ -1,9 +1,9 @@
-package com.yourcompany.game.pickupsticks; // Updated package name
+package com.yourcompany.game.pickupsticks;
 
-import com.yourcompany.game.Contestant; // Import the general Contestant interface
+import com.yourcompany.game.Contestant;
 
 
-public class PickupSticksPlayer implements Contestant { // Updated class name
+public class PickupSticksPlayer implements Contestant {
 
 	private String name;
 	private int age;
@@ -32,8 +32,8 @@ public class PickupSticksPlayer implements Contestant { // Updated class name
 	public boolean equals(Object obj) {
 		if (this == obj) return true;
 		if (obj == null || getClass() != obj.getClass()) return false;
-		PickupSticksPlayer that = (PickupSticksPlayer) obj; // Updated class name
-		return name.equals(that.name); // Simple equality check by name
+		PickupSticksPlayer that = (PickupSticksPlayer) obj;
+		return name.equals(that.name);
 	}
 
 	@Override

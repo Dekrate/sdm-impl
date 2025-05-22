@@ -55,12 +55,12 @@ public class Game {
 			} else if (opponentPoints.getValue() - scorerPoints.getValue() >= 1 && opponentPoints.isAdvantage()) {
 
 				opponentPoints.resetAdvantage();
-				scorerPoints.resetAdvantage(); // Upewnij się, że obie strony są "normalne" 40
+				scorerPoints.resetAdvantage();
 				System.out.println("Deuce!");
 			} else if (scorerPoints.getValue() - opponentPoints.getValue() == 1) {
 
 				scorerPoints.setAdvantage();
-				opponentPoints.resetAdvantage(); // Upewnij się, że przeciwnik nie ma Advantage
+				opponentPoints.resetAdvantage();
 				System.out.println(scoringPlayer.getName() + " Advantage!");
 			}
 
@@ -98,9 +98,9 @@ public class Game {
 
 		if (player1Points.isAdvantage()) {
 			score1 = "AD";
-			score2 = "40"; // Jeśli P1 ma AD, P2 musi mieć 40
+			score2 = "40";
 		} else if (player2Points.isAdvantage()) {
-			score1 = "40"; // Jeśli P2 ma AD, P1 musi mieć 40
+			score1 = "40";
 			score2 = "AD";
 		} else if (player1Points.getValue() == 40 && player2Points.getValue() == 40) {
 			score1 = "40";

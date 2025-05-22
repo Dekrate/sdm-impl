@@ -22,7 +22,7 @@ public class RecordViolationCommand<M extends Match<? extends Contestant, ? exte
 
 
 
-			match.recordViolation(violation); // Delegate the action to the Receiver
+			match.recordViolation(violation);
 		} else {
 			System.err.println("Error executing RecordViolationCommand: Match or violation is null.");
 		}

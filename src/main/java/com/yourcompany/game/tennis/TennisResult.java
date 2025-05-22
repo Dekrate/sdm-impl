@@ -117,7 +117,7 @@ public class TennisResult implements Result {
 
 	
 	public void accept(TennisResultVisitor visitor) {
-		visitor.visit(this); // Visit this TennisResult object
+		visitor.visit(this);
 
 		for (TennisSet set : sets) {
 			set.accept(visitor);

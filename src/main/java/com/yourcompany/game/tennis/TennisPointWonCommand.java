@@ -3,13 +3,13 @@ package com.yourcompany.game.tennis;
 import com.yourcompany.game.MatchCommand;
 import com.yourcompany.game.tennis.TennisMatch;
 import com.yourcompany.game.tennis.TennisPlayer;
-import com.yourcompany.game.Match; // Import general Match interface
-import com.yourcompany.game.Contestant; // Import Contestant
-import com.yourcompany.game.Result; // Import Result
+import com.yourcompany.game.Match;
+import com.yourcompany.game.Contestant;
+import com.yourcompany.game.Result;
 
-public class TennisPointWonCommand implements MatchCommand<TennisMatch> { // Implement MatchCommand for TennisMatch
+public class TennisPointWonCommand implements MatchCommand<TennisMatch> {
 
-	private TennisPlayer scoringPlayer; // The player who won the point
+	private TennisPlayer scoringPlayer;
 
 	
 	public TennisPointWonCommand(TennisPlayer scoringPlayer) {
@@ -18,9 +18,9 @@ public class TennisPointWonCommand implements MatchCommand<TennisMatch> { // Imp
 
 	
 	@Override
-	public void execute(TennisMatch match) { // Signature updated to TennisMatch
+	public void execute(TennisMatch match) {
 		if (match != null && scoringPlayer != null) {
-			match.pointWonBy(scoringPlayer); // Delegate the action to the Receiver
+			match.pointWonBy(scoringPlayer);
 		} else {
 			System.err.println("Error executing PointWonCommand: Match or scoring player is null.");
 		}

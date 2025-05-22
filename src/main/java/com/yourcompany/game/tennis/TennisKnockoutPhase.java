@@ -10,8 +10,8 @@ import java.util.Random;
 
 public class TennisKnockoutPhase extends AbstractTournamentPhase<TennisPlayer, TennisMatch> {
 
-	private static final Random RANDOM = new Random(); // Random for match simulation
-	private int setsPerMatch; // Liczba setów do wygrania w meczu w tej fazie (np. 3 dla best of 5)
+	private static final Random RANDOM = new Random();
+	private int setsPerMatch;
 
 	
 	public TennisKnockoutPhase(String name, List<TennisPlayer> participants, int setsPerMatch) {
@@ -64,12 +64,12 @@ public class TennisKnockoutPhase extends AbstractTournamentPhase<TennisPlayer, T
 
 
 			int pointsSimulated = 0;
-			final int MAX_POINTS_PER_MATCH_SIMULATION = 500; // Limit punktów dla całej symulacji meczu
+			final int MAX_POINTS_PER_MATCH_SIMULATION = 500;
 
 			while (!match.isFinished() && pointsSimulated < MAX_POINTS_PER_MATCH_SIMULATION) {
 				match.executeCommand(new TennisPointWonCommand(RANDOM.nextBoolean() ? p1 : p2));
 
-				if (RANDOM.nextInt(100) < 5) { // 5% szans na naruszenie
+				if (RANDOM.nextInt(100) < 5) {
 					if (RANDOM.nextBoolean()) {
 						match.executeCommand(new RecordViolationCommand(new FootFault(RANDOM.nextBoolean() ? p1 : p2)));
 					} else {
@@ -85,7 +85,7 @@ public class TennisKnockoutPhase extends AbstractTournamentPhase<TennisPlayer, T
 
 				match.executeCommand(new EndMatchCommand<>());
 			} else {
-				match.executeCommand(new EndMatchCommand<>()); // Zakończ mecz, jeśli już się naturalnie zakończył
+				match.executeCommand(new EndMatchCommand<>());
 			}
 
 			System.out.println("\n--- Log meczu ---");
@@ -108,7 +108,7 @@ public class TennisKnockoutPhase extends AbstractTournamentPhase<TennisPlayer, T
 			qualifiers.add(byePlayer);
 			System.out.println("Gracz " + byePlayer.getName() + " awansuje dzięki 'Bye' w fazie '" + name + "'.");
 			System.out.println("Zwycięzcy fazy tenisowej '" + name + "' (Kwalifikanci do następnej rundy): " + qualifiers);
-			return; // Zakończ, ponieważ kwalifikant został już określony
+			return;
 		}
 
 
@@ -137,7 +137,7 @@ public class TennisKnockoutPhase extends AbstractTournamentPhase<TennisPlayer, T
 			return "Faza pucharowa tenisa '" + name + "' jeszcze się nie rozpoczęła.";
 		} else if (isFinished) {
 			String resultString = "Faza pucharowa tenisa '" + name + "' zakończona. ";
-			if (qualifiers.size() == 1 && name.equalsIgnoreCase("Finał")) { // Zakładając, że "Finał" to nazwa ostatniej rundy
+			if (qualifiers.size() == 1 && name.equalsIgnoreCase("Finał")) {
 				resultString += "Zwycięzca turnieju: " + qualifiers.get(0).getName();
 			} else {
 				resultString += "Zwycięzcy: " + qualifiers;

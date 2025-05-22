@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
-import java.util.Arrays; // For Arrays.asList
+import java.util.Arrays;
 
 
 public class PickupSticksTournament implements Tournament<PickupSticksPlayer, PickupSticksMatch> {

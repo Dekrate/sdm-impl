@@ -5,21 +5,21 @@ import com.yourcompany.game.*;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random; // For random stick collection
+import java.util.Random;
 
 
 public class PickupSticksGroupPhase extends AbstractTournamentPhase<PickupSticksPlayer, PickupSticksMatch> {
 
-	private static final Random RANDOM = new Random(); // Random for match simulation
+	private static final Random RANDOM = new Random();
 
-	private PickupSticksStandings standings; // Klasyfikacja dla tej grupy
-	private List<DrawStrategy<PickupSticksPlayer>> drawStrategies; // Strategie rozwiązywania remisów dla klasyfikacji
+	private PickupSticksStandings standings;
+	private List<DrawStrategy<PickupSticksPlayer>> drawStrategies;
 
 
 	public PickupSticksGroupPhase(String name, List<PickupSticksPlayer> participants, List<DrawStrategy<PickupSticksPlayer>> drawStrategies) {
 		super(name, participants);
 		this.drawStrategies = drawStrategies;
-		this.standings = new PickupSticksStandings(participants, drawStrategies); // Inicjalizuj klasyfikację
+		this.standings = new PickupSticksStandings(participants, drawStrategies);
 	}
 
 
@@ -50,8 +50,8 @@ public class PickupSticksGroupPhase extends AbstractTournamentPhase<PickupSticks
 			PickupSticksPlayer p2 = match.getContestants().get(1);
 
 			StickType[] stickTypes = StickType.values();
-			for (int i = 0; i < 10; i++) { // Zwiększona liczba tur dla lepszej symulacji
-				if (RANDOM.nextBoolean()) { // Losowo wybierz, kto zbiera patyczek
+			for (int i = 0; i < 10; i++) {
+				if (RANDOM.nextBoolean()) {
 					match.executeCommand(new CollectStickCommand(p1, stickTypes[RANDOM.nextInt(stickTypes.length)]));
 					match.executeCommand(new EndTurnCommand(p1));
 				} else {
@@ -82,7 +82,7 @@ public class PickupSticksGroupPhase extends AbstractTournamentPhase<PickupSticks
 		System.out.println("\nOstateczna klasyfikacja dla grupy bierek '" + name + "':\n" + standings.getStandingsTable());
 
 		List<PickupSticksPlayer> ranked = standings.getRankedContestants();
-		if (ranked.size() >= 2) { // Zakładając, że kwalifikują się 2 najlepszych
+		if (ranked.size() >= 2) {
 			qualifiers.add(ranked.get(0));
 			qualifiers.add(ranked.get(1));
 			System.out.println("Kwalifikanci z grupy bierek '" + name + "': " + qualifiers.get(0).getName() + " i " + qualifiers.get(1).getName());

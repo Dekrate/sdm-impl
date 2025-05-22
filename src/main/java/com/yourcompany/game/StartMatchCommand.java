@@ -11,7 +11,7 @@ public class StartMatchCommand<M extends Match<? extends Contestant, ? extends R
 	@Override
 	public void execute(M match) {
 		if (match != null) {
-			match.startMatch(); // Delegate the action to the Receiver
+			match.startMatch();
 		} else {
 			System.err.println("Error executing StartMatchCommand: Match is null.");
 		}

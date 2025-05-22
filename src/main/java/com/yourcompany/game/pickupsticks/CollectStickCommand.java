@@ -22,7 +22,7 @@ public class CollectStickCommand implements MatchCommand<PickupSticksMatch> {
   @Override
   public void execute(PickupSticksMatch match) {
     if (match != null && player != null && stickType != null) {
-      match.recordStickCollection(player, stickType); // Delegate the action to the Receiver
+      match.recordStickCollection(player, stickType);
     } else {
       System.err.println("Error executing CollectStickCommand: Match, player, or stick type is null.");
     }

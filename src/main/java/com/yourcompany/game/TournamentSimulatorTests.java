@@ -62,7 +62,7 @@ public class TournamentSimulatorTests {
 		groupATournament.startTournament();
 		simulatePhase((AbstractTournamentPhase<TennisPlayer, TennisMatch>) groupATournament.getCurrentPhase());
 
-		List<TennisPlayer> groupAQualifiers = groupATournament.getCurrentPhase().getQualifiers(); // Get qualifiers from the finished group A phase
+		List<TennisPlayer> groupAQualifiers = groupATournament.getCurrentPhase().getQualifiers();
 		System.out.println("Kwalifikanci z Grupy A: " + groupAQualifiers);
 
 		List<TournamentPhase<TennisPlayer, TennisMatch>> groupBPhaseDef = new ArrayList<>();
@@ -72,7 +72,7 @@ public class TournamentSimulatorTests {
 		);
 		groupBTournament.startTournament();
 		simulatePhase((AbstractTournamentPhase<TennisPlayer, TennisMatch>) groupBTournament.getCurrentPhase());
-		List<TennisPlayer> groupBQualifiers = groupBTournament.getCurrentPhase().getQualifiers(); // Get qualifiers from the finished group B phase
+		List<TennisPlayer> groupBQualifiers = groupBTournament.getCurrentPhase().getQualifiers();
 		System.out.println("Kwalifikanci z Grupy B: " + groupBQualifiers);
 
 		List<TennisPlayer> allKnockoutParticipants = new ArrayList<>();
@@ -85,14 +85,14 @@ public class TournamentSimulatorTests {
 
 
 
-		knockoutPhaseDefinitions.add(new TennisKnockoutPhase("Półfinały", Collections.emptyList(), 3)); // Participants will be passed by advanceToNextPhase
-		knockoutPhaseDefinitions.add(new TennisKnockoutPhase("Finał", Collections.emptyList(), 5)); // Participants will be passed by advanceToNextPhase
+		knockoutPhaseDefinitions.add(new TennisKnockoutPhase("Półfinały", Collections.emptyList(), 3));
+		knockoutPhaseDefinitions.add(new TennisKnockoutPhase("Finał", Collections.emptyList(), 5));
 
 		Tournament<TennisPlayer, TennisMatch> mainTennisTournament = new com.yourcompany.game.tennis.TennisTournament(
 				"Wielki Szlem Tenis", allKnockoutParticipants, knockoutPhaseDefinitions, tennisPhaseFactory
 		);
 
-		mainTennisTournament.startTournament(); // This will start the Ćwierćfinały phase
+		mainTennisTournament.startTournament();
 
 		while (!mainTennisTournament.isFinished()) {
 			simulatePhase((AbstractTournamentPhase<TennisPlayer, TennisMatch>) mainTennisTournament.getCurrentPhase());

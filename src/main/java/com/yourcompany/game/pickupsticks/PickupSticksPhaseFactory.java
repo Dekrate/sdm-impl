@@ -2,7 +2,7 @@ package com.yourcompany.game.pickupsticks;
 
 import com.yourcompany.game.TournamentPhaseFactory;
 import com.yourcompany.game.TournamentPhase;
-import com.yourcompany.game.DrawStrategy; // Import DrawStrategy
+import com.yourcompany.game.DrawStrategy;
 
 import java.util.List;
 

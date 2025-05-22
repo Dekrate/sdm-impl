@@ -5,7 +5,7 @@ import com.yourcompany.game.tennis.TennisSet;
 import com.yourcompany.game.tennis.Game;
 import com.yourcompany.game.tennis.TennisPoint;
 
-public interface TennisResultVisitor { // Renamed to TennisResultVisitor
+public interface TennisResultVisitor {
 
 	
 	void visit(TennisResult result);

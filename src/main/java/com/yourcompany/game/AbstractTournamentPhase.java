@@ -9,8 +9,8 @@ public abstract class AbstractTournamentPhase<T extends Contestant, M extends Ma
 
 	protected String name;
 	protected List<T> participants;
-	protected List<M> matches; // Mecze w tej fazie
-	protected List<T> qualifiers; // Zawodnicy, którzy awansowali
+	protected List<M> matches;
+	protected List<T> qualifiers;
 	protected boolean isStarted;
 	protected boolean isFinished;
 
@@ -55,7 +55,7 @@ public abstract class AbstractTournamentPhase<T extends Contestant, M extends Ma
 			if (allMatchesFinished) {
 				isFinished = true;
 				System.out.println("Faza '" + name + "' zakończona!");
-				determineQualifiers(); // Określ kwalifikantów po zakończeniu wszystkich meczów
+				determineQualifiers();
 			} else {
 				System.out.println("Nie można zakończyć fazy '" + name + "'. Nie wszystkie mecze są zakończone.");
 			}
@@ -78,20 +78,20 @@ public abstract class AbstractTournamentPhase<T extends Contestant, M extends Ma
 
 	@Override
 	public List<M> getMatches() {
-		return Collections.unmodifiableList(matches); // Zwróć niemodyfikowalną listę
+		return Collections.unmodifiableList(matches);
 	}
 
 	@Override
 	public List<T> getQualifiers() {
-		return Collections.unmodifiableList(qualifiers); // Zwróć niemodyfikowalną listę
+		return Collections.unmodifiableList(qualifiers);
 	}
 
 
 	public final void runPhase() {
 		startPhase();
-		generateMatches(); // Abstrakcyjna metoda, implementowana przez podklasy
-		playAllMatchesInPhase(); // NOWA abstrakcyjna metoda do odtworzenia meczów
-		endPhase(); // Sprawdza i kończy fazę
+		generateMatches();
+		playAllMatchesInPhase();
+		endPhase();
 	}
 
 

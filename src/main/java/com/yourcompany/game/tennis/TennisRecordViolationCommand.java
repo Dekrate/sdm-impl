@@ -2,12 +2,12 @@ package com.yourcompany.game.tennis;
 
 import com.yourcompany.game.*;
 import com.yourcompany.game.tennis.TennisMatch;
-import com.yourcompany.game.tennis.TennisPlayer; // Import TennisPlayer for Violation type
-import com.yourcompany.game.tennis.TennisResult; // Import TennisResult for Violation type
+import com.yourcompany.game.tennis.TennisPlayer;
+import com.yourcompany.game.tennis.TennisResult;
 
-public class TennisRecordViolationCommand implements MatchCommand<TennisMatch> { // Implement MatchCommand for TennisMatch
+public class TennisRecordViolationCommand implements MatchCommand<TennisMatch> {
 
-	private Violation<TennisPlayer, TennisResult> violation; // The violation that occurred
+	private Violation<TennisPlayer, TennisResult> violation;
 
 	
 	public TennisRecordViolationCommand(Violation<TennisPlayer, TennisResult> violation) {
@@ -16,9 +16,9 @@ public class TennisRecordViolationCommand implements MatchCommand<TennisMatch> {
 
 	
 	@Override
-	public void execute(TennisMatch match) { // Signature updated to TennisMatch
+	public void execute(TennisMatch match) {
 		if (match != null && violation != null) {
-			match.recordViolation(violation); // Delegate the action to the Receiver
+			match.recordViolation(violation);
 		} else {
 			System.err.println("Error executing RecordViolationCommand: Match or violation is null.");
 		}

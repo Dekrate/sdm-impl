@@ -13,7 +13,7 @@ public class TennisSet {
 	private boolean finished;
 	private List<Game> games;
 	private Game currentGame;
-	private boolean isTieBreak; // Flaga wskazująca, czy set jest w tie-breaku
+	private boolean isTieBreak;
 
 	
 	public TennisSet(TennisPlayer player1, TennisPlayer player2) {
@@ -24,7 +24,7 @@ public class TennisSet {
 		this.winner = null;
 		this.finished = false;
 		this.games = new ArrayList<>();
-		this.currentGame = new Game(player1, player2); // Rozpocznij pierwszy gem
+		this.currentGame = new Game(player1, player2);
 		this.games.add(currentGame);
 		this.isTieBreak = false;
 	}
@@ -39,7 +39,7 @@ public class TennisSet {
 		if (isTieBreak) {
 
 			if (scoringPlayer.equals(player1)) {
-				player1Games++; // W tie-breaku "gemy" to punkty
+				player1Games++;
 			} else {
 				player2Games++;
 			}
@@ -54,7 +54,7 @@ public class TennisSet {
 				} else {
 					player2Games++;
 				}
-				checkSetFinished(); // Sprawdź zakończenie seta po zakończeniu gema
+				checkSetFinished();
 				if (!finished) {
 
 					currentGame = new Game(player1, player2);
@@ -66,7 +66,7 @@ public class TennisSet {
 
 	
 	private void checkSetFinished() {
-		if (finished) return; // Już zakończony
+		if (finished) return;
 
 		if (player1Games >= 6 && player1Games - player2Games >= 2) {
 			winner = player1;
@@ -80,7 +80,7 @@ public class TennisSet {
 			isTieBreak = true;
 
 
-			player1Games = 0; // Punkty tie-breaka zaczynają się od 0
+			player1Games = 0;
 			player2Games = 0;
 
 		}
@@ -88,7 +88,7 @@ public class TennisSet {
 
 	
 	private void checkTieBreakFinished() {
-		if (!isTieBreak) return; // Nie jesteśmy w tie-breaku
+		if (!isTieBreak) return;
 
 		if (player1Games >= 7 && player1Games - player2Games >= 2) {
 			winner = player1;

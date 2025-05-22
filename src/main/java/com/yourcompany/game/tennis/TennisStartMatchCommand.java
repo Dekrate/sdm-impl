@@ -2,17 +2,17 @@ package com.yourcompany.game.tennis;
 
 import com.yourcompany.game.MatchCommand;
 import com.yourcompany.game.tennis.TennisMatch;
-import com.yourcompany.game.Match; // Import general Match interface
-import com.yourcompany.game.Contestant; // Import Contestant
-import com.yourcompany.game.Result; // Import Result
+import com.yourcompany.game.Match;
+import com.yourcompany.game.Contestant;
+import com.yourcompany.game.Result;
 
-public class TennisStartMatchCommand implements MatchCommand<TennisMatch> { // Implement MatchCommand for TennisMatch
+public class TennisStartMatchCommand implements MatchCommand<TennisMatch> {
 
 	
 	@Override
-	public void execute(TennisMatch match) { // Signature updated to TennisMatch
+	public void execute(TennisMatch match) {
 		if (match != null) {
-			match.startMatch(); // Delegate the action to the Receiver
+			match.startMatch();
 		} else {
 			System.err.println("Error executing StartMatchCommand: Match is null.");
 		}

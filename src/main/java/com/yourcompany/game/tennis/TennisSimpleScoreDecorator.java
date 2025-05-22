@@ -2,7 +2,7 @@ package com.yourcompany.game.tennis;
 
 import com.yourcompany.game.Result;
 import com.yourcompany.game.ResultDecorator;
-import com.yourcompany.game.tennis.TennisResult; // Assuming it decorates TennisResult
+import com.yourcompany.game.tennis.TennisResult;
 
 public class TennisSimpleScoreDecorator extends ResultDecorator {
 

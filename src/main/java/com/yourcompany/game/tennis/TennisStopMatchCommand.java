@@ -2,13 +2,13 @@ package com.yourcompany.game.tennis;
 
 import com.yourcompany.game.MatchCommand;
 
-public class TennisStopMatchCommand implements MatchCommand<TennisMatch> { // Implement MatchCommand for TennisMatch
+public class TennisStopMatchCommand implements MatchCommand<TennisMatch> {
 
 	
 	@Override
-	public void execute(TennisMatch match) { // Signature updated to TennisMatch
+	public void execute(TennisMatch match) {
 		if (match != null) {
-			match.endMatch(); // Delegate the action to the Receiver
+			match.endMatch();
 		} else {
 			System.err.println("Error executing EndMatchCommand: Match is null.");
 		}

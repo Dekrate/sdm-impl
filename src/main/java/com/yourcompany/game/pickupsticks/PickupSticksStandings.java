@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.LinkedHashMap; // For ordered map in getStandingsTable if needed
+import java.util.LinkedHashMap;
 
 
 
@@ -17,16 +17,16 @@ public class PickupSticksStandings implements Standings<PickupSticksPlayer> {
 
 
 	private Map<PickupSticksPlayer, Map<String, Integer>> standingsData;
-	private List<PickupSticksPlayer> rankedContestants; // Posortowana lista zawodników
-	private List<DrawStrategy<PickupSticksPlayer>> drawStrategies; // Lista strategii rozwiązywania remisów
-	private List<? extends Match<PickupSticksPlayer, ?>> allMatchesInPhase; // Przechowujemy referencję do wszystkich meczów
+	private List<PickupSticksPlayer> rankedContestants;
+	private List<DrawStrategy<PickupSticksPlayer>> drawStrategies;
+	private List<? extends Match<PickupSticksPlayer, ?>> allMatchesInPhase;
 
 	
 	public PickupSticksStandings(List<PickupSticksPlayer> players, List<DrawStrategy<PickupSticksPlayer>> drawStrategies) {
 		this.standingsData = new HashMap<>();
-		this.rankedContestants = new ArrayList<>(players); // Początkowo lista nieposortowana
+		this.rankedContestants = new ArrayList<>(players);
 		this.drawStrategies = drawStrategies;
-		this.allMatchesInPhase = new ArrayList<>(); // Inicjalizacja listy meczów
+		this.allMatchesInPhase = new ArrayList<>();
 		initializeStandings(players);
 	}
 
@@ -43,7 +43,7 @@ public class PickupSticksStandings implements Standings<PickupSticksPlayer> {
 
 	@Override
 	public void updateStandings(List<? extends Match<PickupSticksPlayer, ?>> matches) {
-		this.allMatchesInPhase = matches; // Zapisujemy referencję do meczów
+		this.allMatchesInPhase = matches;
 
 		for (Map<String, Integer> data : standingsData.values()) {
 			data.put("totalPoints", 0);
@@ -54,7 +54,7 @@ public class PickupSticksStandings implements Standings<PickupSticksPlayer> {
 
 		for (Match<PickupSticksPlayer, ?> match : matches) {
 			if (match.isFinished()) {
-				PickupSticksResult result = (PickupSticksResult) match.getResult(); // Rzutowanie na konkretny typ wyniku
+				PickupSticksResult result = (PickupSticksResult) match.getResult();
 
 				PickupSticksPlayer player1 = match.getContestants().get(0);
 				PickupSticksPlayer player2 = match.getContestants().get(1);
@@ -124,7 +124,7 @@ public class PickupSticksStandings implements Standings<PickupSticksPlayer> {
 
 			if (tiedGroup.size() > 1) {
 				System.out.println("\nWykryto remis wśród: " + tiedGroup);
-				List<PickupSticksPlayer> resolvedTie = new ArrayList<>(tiedGroup); // Kopia do pracy
+				List<PickupSticksPlayer> resolvedTie = new ArrayList<>(tiedGroup);
 
 				for (DrawStrategy<PickupSticksPlayer> strategy : drawStrategies) {
 

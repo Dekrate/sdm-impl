@@ -5,12 +5,12 @@ import com.yourcompany.game.*;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random; // For random stick collection
+import java.util.Random;
 
 
 public class PickupSticksKnockoutPhase extends AbstractTournamentPhase<PickupSticksPlayer, PickupSticksMatch> {
 
-	private static final Random RANDOM = new Random(); // Random for match simulation
+	private static final Random RANDOM = new Random();
 
 
 	public PickupSticksKnockoutPhase(String name, List<PickupSticksPlayer> participants) {
@@ -49,8 +49,8 @@ public class PickupSticksKnockoutPhase extends AbstractTournamentPhase<PickupSti
 			PickupSticksPlayer p2 = match.getContestants().get(1);
 
 			StickType[] stickTypes = StickType.values();
-			for (int i = 0; i < 10; i++) { // Zwiększona liczba tur dla lepszej symulacji
-				if (RANDOM.nextBoolean()) { // Losowo wybierz, kto zbiera patyczek
+			for (int i = 0; i < 10; i++) {
+				if (RANDOM.nextBoolean()) {
 					match.executeCommand(new CollectStickCommand(p1, stickTypes[RANDOM.nextInt(stickTypes.length)]));
 					match.executeCommand(new EndTurnCommand(p1));
 				} else {
@@ -95,7 +95,7 @@ public class PickupSticksKnockoutPhase extends AbstractTournamentPhase<PickupSti
 			return "Faza pucharowa bierek '" + name + "' jeszcze się nie rozpoczęła.";
 		} else if (isFinished) {
 			String resultString = "Faza pucharowa bierek '" + name + "' zakończona. ";
-			if (qualifiers.size() == 1 && name.equalsIgnoreCase("Finał")) { // Zakładając, że "Finał" to nazwa ostatniej rundy
+			if (qualifiers.size() == 1 && name.equalsIgnoreCase("Finał")) {
 				resultString += "Zwycięzca turnieju: " + qualifiers.get(0).getName();
 			} else {
 				resultString += "Zwycięzcy: " + qualifiers;
